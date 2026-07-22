@@ -1,0 +1,3 @@
+# The offline demo runs on the standard library alone. pyyaml is the only
+# dependency, and evals/_minimal_yaml.py covers for it if you skip this file.
+pyyaml>=6.0

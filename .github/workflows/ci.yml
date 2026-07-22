@@ -1,0 +1,47 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      # Run once with no dependencies at all, to prove the fallback YAML
+      # parser works on a clean machine. This is the path most people hit
+      # before they read the README.
+      - name: Tests, no dependencies
+        run: python3 -m tests.test_repo
+
+      - name: Gate runs without pyyaml
+        run: python3 evals/score.py || true
+
+      - run: pip install -r requirements.txt
+
+      - name: Tests, with pyyaml
+        run: python3 -m tests.test_repo
+
+      - name: Improver proposes the documented change
+        run: |
+          python3 scripts/propose_improvement.py --dry-run | tee /tmp/out.txt
+          grep -q "implementation_page_visit: 4 -> 6" /tmp/out.txt
+          grep -q "score=0.75 -> score=1.00" /tmp/out.txt
+
+      - name: Config is unchanged after a dry run
+        run: git diff --exit-code -- config/scoring.yaml
+
+      - name: Shell scripts parse
+        run: for f in scripts/*.sh; do bash -n "$f"; done

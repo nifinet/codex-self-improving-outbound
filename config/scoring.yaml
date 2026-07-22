@@ -1,0 +1,32 @@
+# The judgment layer, as a file you can argue with.
+#
+# This ships in its BEFORE state on purpose. implementation_page_visit is
+# deliberately set to 4, which makes evals/score.py fail one case (score=0.75).
+# That is the known miss the improver is meant to find and fix on the first run.
+# Do not correct it by hand before you have watched the loop do it.
+
+signals:
+  competitor_comparison:
+    weight: 8
+    reason: "buyer is comparing alternatives"
+  implementation_page_visit:
+    weight: 4
+    reason: "buyer is checking whether this can be installed"
+  job_repost:
+    weight: 5
+    reason: "role is still open and urgent"
+  funding_event:
+    weight: 5
+    reason: "budget or mandate may have changed"
+  generic_download:
+    weight: 1
+    reason: "content interest, weak buying intent"
+
+thresholds:
+  draft: 6
+  human_review: 10
+
+negative_signals:
+  student_research: -8
+  vendor_pitch: -6
+  competitor: -10

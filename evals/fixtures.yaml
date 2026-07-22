@@ -1,0 +1,26 @@
+# The gate the improver cannot explain its way past.
+#
+# Put ugly cases in here. Weak intent, bad fit, stale signals, and the accounts
+# you wish the system had routed differently. A fixture made only of obvious
+# wins will pass every reckless change.
+
+cases:
+  - account: Northwind Finance
+    signals: [competitor_comparison, implementation_page_visit]
+    expected: human_review
+    note: "two strong signals on one account"
+
+  - account: Bluepeak Studio
+    signals: [generic_download]
+    expected: ignore
+    note: "content-only intent"
+
+  - account: KiteOps
+    signals: [implementation_page_visit]
+    expected: draft
+    note: "implementation intent should clear draft threshold"
+
+  - account: Atlas Recruiting
+    signals: [job_repost, student_research]
+    expected: ignore
+    note: "bad-fit marker cancels the signal"

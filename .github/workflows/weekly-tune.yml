@@ -1,0 +1,44 @@
+name: weekly-outbound-tune
+
+on:
+  schedule:
+    - cron: "0 8 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  tune:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - run: pip install -r requirements.txt
+
+      - name: Tests
+        run: python3 -m tests.test_repo
+
+      # Expected to fail on a fresh clone. That is the known miss.
+      - name: Gate, before
+        run: python3 evals/score.py || true
+
+      - name: Propose one change
+        run: python3 scripts/propose_improvement.py
+
+      - name: Gate, after
+        run: python3 evals/score.py
+
+      - name: Open the pull request
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name  "codex-tuner"
+          git config user.email "codex-tuner@users.noreply.github.com"
+          python3 scripts/create_pr.py --summary-only > outputs/pr-summary.md
+          scripts/open_pr.sh

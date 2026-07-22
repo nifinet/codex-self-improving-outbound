@@ -1,0 +1,18 @@
+{"date":"2026-07-01","account":"Northwind Finance","signal":"competitor_comparison","play":"migration_note","score":8,"outcome":"reply","reason":"asked for migration notes"}
+{"date":"2026-07-01","account":"Bluepeak Studio","signal":"generic_download","play":"resource_followup","score":1,"outcome":"no_reply","reason":"content-only intent"}
+{"date":"2026-07-02","account":"KiteOps","signal":"implementation_page_visit","play":"implementation_angle","score":4,"outcome":"reply","reason":"asked about implementation timeline"}
+{"date":"2026-07-02","account":"Atlas Recruiting","signal":"job_repost","play":"hiring_angle","score":5,"outcome":"bad_fit","reason":"student research request"}
+{"date":"2026-07-03","account":"Vector Labs","signal":"competitor_comparison","play":"migration_note","score":8,"outcome":"reply","reason":"asked for a comparison checklist"}
+{"date":"2026-07-03","account":"Marble CRM","signal":"generic_download","play":"resource_followup","score":1,"outcome":"no_reply","reason":"content-only intent, no active evaluation"}
+{"date":"2026-07-04","account":"Harborline Ops","signal":"implementation_page_visit","play":"implementation_angle","score":4,"outcome":"meeting","reason":"wanted to walk through the rollout steps"}
+{"date":"2026-07-04","account":"Cedar Freight","signal":"funding_event","play":"budget_angle","score":5,"outcome":"no_reply","reason":"funding round was six months stale"}
+{"date":"2026-07-07","account":"Pinewood Legal","signal":"implementation_page_visit","play":"implementation_angle","score":4,"outcome":"reply","reason":"asked who owns the integration internally"}
+{"date":"2026-07-07","account":"Onyx Retail","signal":"job_repost","play":"hiring_angle","score":5,"outcome":"no_reply","reason":"role was filled before the touch landed"}
+{"date":"2026-07-08","account":"Quill Analytics","signal":"generic_download","play":"resource_followup","score":1,"outcome":"bad_fit","reason":"student research request"}
+{"date":"2026-07-08","account":"Ridgeline Health","signal":"competitor_comparison","play":"migration_note","score":8,"outcome":"meeting","reason":"actively scoping a switch this quarter"}
+{"date":"2026-07-09","account":"Stonepath Group","signal":"implementation_page_visit","play":"implementation_angle","score":4,"outcome":"no_reply","reason":"read the page, never came back"}
+{"date":"2026-07-09","account":"Fernbank Media","signal":"generic_download","play":"resource_followup","score":1,"outcome":"no_reply","reason":"downloaded and went quiet"}
+{"date":"2026-07-10","account":"Alder Systems","signal":"funding_event","play":"budget_angle","score":5,"outcome":"reply","reason":"round closed two weeks ago, hiring a delivery team"}
+{"date":"2026-07-10","account":"Cobalt Interactive","signal":"competitor_comparison","play":"migration_note","score":8,"outcome":"reply","reason":"asked what breaks during a switch"}
+{"date":"2026-07-11","account":"Thames Logistics","signal":"implementation_page_visit","play":"implementation_angle","score":4,"outcome":"reply","reason":"asked whether it fits their current stack"}
+{"date":"2026-07-11","account":"Sable Consulting","signal":"competitor_comparison","play":"migration_note","score":8,"outcome":"meeting","reason":"already shortlisted two vendors"}

@@ -1,0 +1,20 @@
+# Plays are the message lane. Scoring decides who gets a draft, a play decides
+# what that draft says. They improve separately and they ship in separate PRs,
+# so a reviewer can always tell whether the judgment changed or the copy did.
+
+plays:
+  migration_note:
+    prompt_file: prompts/plays/migration_note.md
+    use_when:
+      - competitor_comparison
+    banned_lines:
+      - "thought this might be relevant"
+      - "quick question"
+
+  implementation_angle:
+    prompt_file: prompts/plays/implementation_angle.md
+    use_when:
+      - implementation_page_visit
+    banned_lines:
+      - "checking out our solution"
+      - "would love to chat"
